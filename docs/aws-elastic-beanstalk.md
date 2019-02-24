@@ -1,5 +1,8 @@
 # Deploying to AWS Elastic Beanstalk
 
+## Install AWS CLI && EB CLI
+
+    brew install awscli awsebcli
 
 ## With RDS database
 
