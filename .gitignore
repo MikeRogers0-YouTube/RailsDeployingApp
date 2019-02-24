@@ -26,5 +26,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Ignore any .example files
-*.example
+# Don't include local .env
+.env
+
+# Ignore any .sample files
+*.sample
