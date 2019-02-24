@@ -1,3 +1,5 @@
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 # Rails Deploying App
 
 A sample on how to get setup with common deploying services
