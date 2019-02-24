@@ -31,3 +31,8 @@
 
 # Ignore any .sample files
 *.sample
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
