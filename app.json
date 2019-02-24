@@ -22,7 +22,8 @@
       "required": true
     },
     "DURING_RELEASE_RUN_MIGRATIONS": {
-      "required": true
+      "required": true,
+      "value": "enabled"
     }
   },
   "formation": {
