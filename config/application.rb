@@ -18,6 +18,8 @@ module RailsDeployingApp
       g.helper false
       g.view_specs false
       g.decorator false
+      g.jbuilder false
+      g.api false
       g.system_tests = nil
     end
   end
