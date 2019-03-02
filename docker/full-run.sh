@@ -3,7 +3,7 @@
 # Yarn should all installed, but just in case
 echo ""
 echo "Checking Yarn dependencies are all installed:"
-$HOME/.yarn/bin/yarn install --pure-lockfile | sed "s/^/    /g"
+yarn install --pure-lockfile | sed "s/^/    /g"
 
 # Wait for postgres to start before starting the rest of the service
 echo ""
