@@ -23,9 +23,9 @@ echo "    👍"
 rm -f tmp/pids/server.pid
 
 if [[ ${@} = *"bundle exec rails s -p"* ]]; then
- . /docker/full-run.sh 
+ . /.docker/full-run.sh 
 else
- . /docker/one-off-task.sh 
+ . /.docker/one-off-task.sh 
 fi
 
 # Finally call command issued to the docker service

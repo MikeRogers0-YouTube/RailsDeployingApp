@@ -17,12 +17,12 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 ENV PATH="${HOME}/.yarn/bin:${HOME}/.config/yarn/global/node_modules/.bin:${PATH}"
 
 # Add bundle entry point to handle bundle cache
-RUN mkdir -p /docker
-ADD /docker /docker
-RUN chmod +x /docker/entrypoint.sh
-RUN chmod +x /docker/one-off-task.sh
-RUN chmod +x /docker/full-run.sh
-ENTRYPOINT ["/docker/entrypoint.sh"]
+RUN mkdir -p /.docker
+ADD /.docker /.docker
+RUN chmod +x /.docker/entrypoint.sh
+RUN chmod +x /.docker/one-off-task.sh
+RUN chmod +x /.docker/full-run.sh
+ENTRYPOINT ["/.docker/entrypoint.sh"]
 
 # Bundle installs with binstubs to our custom /bundle/bin volume path. 
 # Let system use those stubs.
