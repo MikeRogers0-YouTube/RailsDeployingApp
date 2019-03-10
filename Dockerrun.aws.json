@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "web",
-      "image": "402239435993.dkr.ecr.eu-west-2.amazonaws.com/rails-deploying-app:latest",
+      "image": "094629777318.dkr.ecr.eu-west-2.amazonaws.com/rails-deploying-app:latest",
       "memoryReservation": "256",
       "portMappings": [
         {
@@ -16,7 +16,7 @@
     },
     {
       "name": "sidekiq",
-      "image": "402239435993.dkr.ecr.eu-west-2.amazonaws.com/rails-deploying-app:latest",
+      "image": "094629777318.dkr.ecr.eu-west-2.amazonaws.com/rails-deploying-app:latest",
       "memoryReservation": "256",
       "command": ["bundle", "exec", "sidekiq"],
       "essential": true
