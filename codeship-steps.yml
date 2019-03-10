@@ -3,6 +3,3 @@
   - name: rake test
     service: web-codeship-example-ruby
     command: bundle exec rake test
-  - name: rubocop
-    service: web-codeship-example-ruby
-    command: rubocop
