@@ -1,9 +1,8 @@
 - type: parallel
-  name: example_parallel_step
   steps:
-    - service: codeship_example
-      command: bundle exec rails test
-- name: example_tagged_step
-  tag: master
-  service: codeship_example
-  command: echo "Deploy here!"
+  - name: rake test
+    service: web-codeship-example-ruby
+    command: bundle exec rake test
+  - name: rubocop
+    service: web-codeship-example-ruby
+    command: rubocop
