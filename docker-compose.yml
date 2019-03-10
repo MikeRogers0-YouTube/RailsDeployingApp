@@ -34,7 +34,7 @@ services:
       interval: 90s
       timeout: 10s
       retries: 5
-  worker:
+  sidekiq:
     container_name: RailsDeployingApp-Worker
     environment:
       - DATABASE_URL=postgres://postgres:@db:5432/RailsDeployingApp_development
