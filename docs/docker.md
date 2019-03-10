@@ -2,6 +2,8 @@
 
 https://blog.velalu.qa/admin/tech/ruby/rails/docker/2017/11/06/rails-in-docker-on-aws-elastic-beanstalk.html - Based on this. 
 
+Ideally this'll auto deploy once tests past via codeship.
+
 ## Building & running
 
 ### Build your docker environments
