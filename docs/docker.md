@@ -4,6 +4,9 @@ https://blog.velalu.qa/admin/tech/ruby/rails/docker/2017/11/06/rails-in-docker-o
 
 Ideally this'll auto deploy once tests past via codeship.
 
+ - https://documentation.codeship.com/pro/continuous-deployment/aws-ecs/
+
+
 ## Building & running
 
 ### Build your docker environments
