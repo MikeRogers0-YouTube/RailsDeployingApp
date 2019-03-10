@@ -1,0 +1,7 @@
+codeship_example:
+  build:
+    image: rails-deploying-app
+    dockerfile: Dockerfile
+  environment:
+    RAILS_ENV: test
+    RACK_ENV: test
