@@ -1,5 +1,7 @@
 # Docker
 
+https://blog.velalu.qa/admin/tech/ruby/rails/docker/2017/11/06/rails-in-docker-on-aws-elastic-beanstalk.html - Based on this. 
+
 ## Building & running
 
 ### Build your docker environments
@@ -21,7 +23,7 @@
     aws ecr create-repository --repository-name rails-deploying-app --region eu-west-2 &&
     aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly --role-name aws-elasticbeanstalk-ec2-role --region eu-west-2
 
-### Building container
+### Building container and pushing to to ECR
 
     `aws ecr get-login --no-include-email --region eu-west-2` &&
     docker build -t rails-deploying-app . &&
