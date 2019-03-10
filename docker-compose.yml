@@ -18,12 +18,11 @@ services:
     container_name: RailsDeployingApp-Web
     environment:
       - PORT=3000
-      - DB_PORT=5432
       - DATABASE_URL=postgres://postgres:@db:5432/RailsDeployingApp_development
     build: .
     command: "bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/myapp
+      - .:/app
       - bundle_cache:/bundle
     ports:
       - "3000:3000"
@@ -35,6 +34,17 @@ services:
       interval: 90s
       timeout: 10s
       retries: 5
+  worker:
+    container_name: RailsDeployingApp-Worker
+    environment:
+      - DATABASE_URL=postgres://postgres:@db:5432/RailsDeployingApp_development
+    build: .
+    command: "bundle exec sidekiq"
+    volumes:
+      - .:/app
+      - bundle_cache:/bundle
+    depends_on:
+      - web
 
 volumes:
   bundle_cache:

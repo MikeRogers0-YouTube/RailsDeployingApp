@@ -16,14 +16,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 ENV PATH="${HOME}/.yarn/bin:${HOME}/.config/yarn/global/node_modules/.bin:${PATH}"
 
-# Add bundle entry point to handle bundle cache
-RUN mkdir -p /.docker
-ADD /.docker /.docker
-RUN chmod +x /.docker/entrypoint.sh
-RUN chmod +x /.docker/one-off-task.sh
-RUN chmod +x /.docker/full-run.sh
-ENTRYPOINT ["/.docker/entrypoint.sh"]
-
 # Bundle installs with binstubs to our custom /bundle/bin volume path. 
 # Let system use those stubs.
 ENV BUNDLE_PATH=/bundle \
@@ -31,11 +23,21 @@ ENV BUNDLE_PATH=/bundle \
     GEM_HOME=/bundle
 ENV PATH="${BUNDLE_BIN}:${PATH}"
 
-# Add app files into docker image
-RUN mkdir -p /myapp
-WORKDIR /myapp
+# Set ENVs
+ENV RAILS_ENV production
+ENV RACK_ENV production
+ENV SECRET_KEY_BASE shouldnt-need-this-for-building
 
-COPY .ruby-version /myapp/.ruby-version
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
-#COPY . /myapp
+# Add app files into docker image
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY .ruby-version /app/.ruby-version
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+RUN bundle check || bundle install -j4 --deployment --jobs 2 --binstubs="$BUNDLE_BIN"
+
+COPY . /app
+
+RUN yarn install
+RUN bundle exec rake assets:precompile
