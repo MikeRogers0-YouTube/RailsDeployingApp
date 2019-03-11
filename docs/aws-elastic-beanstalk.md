@@ -6,6 +6,10 @@
 
 ## Creating App
 
+Create your application here https://eu-west-2.console.aws.amazon.com/elasticbeanstalk/home?region=eu-west-2#/applications
+
+    eb use RailsDeployingApp
+
 ### With RDS database
 
 Run: 
